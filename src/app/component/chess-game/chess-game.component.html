@@ -1,0 +1,12 @@
+<form [formGroup]="chessMoveForm" *ngIf="chessMoveForm" (ngSubmit)="onSubmit()">
+    <label for="chess-move">Chess move: </label>
+    <input id="chess-move" type="text" formControlName="chessInput">
+    <button type="submit">Submit</button>
+</form>
+
+<p><b>Entered input:</b> {{ inputValues }}</p>
+<p><b>Possible Moves:</b> 
+    <span *ngFor="let move of possibleMoves; last as isLast">
+        {{ getCellNumber(move) }}<span *ngIf="!isLast">,</span>
+    </span>
+</p>
